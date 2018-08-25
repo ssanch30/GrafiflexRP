@@ -1,0 +1,20 @@
+{
+    "userList":[
+        {
+            "name":"santiago.sanchez",
+            "psw":"2546",
+            "id":1        
+        },
+        {
+            "name":"cristina.vasquez",
+            "psw":"1212",
+            "id": 2
+        },
+        {
+            "name":"carlos.sanchez",
+            "psw":"0825",
+            "id":3
+        }
+    
+    ]
+}

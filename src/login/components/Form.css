@@ -1,0 +1,56 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+    width:50%;
+    height: 85%;
+    align-content: center;
+    align-self: center;
+    overflow-y:auto;
+    
+        
+}
+
+.Form input[type=text], Form input[type=password]{
+    padding: 20px;
+    margin-bottom: 50px;
+    font-size: 24px;
+    text-align: center;
+    background-color: rgb(221, 221, 221);
+    border: 0px;
+    border-radius: 5px;
+    margin-bottom:  auto;
+}
+
+.Form h2{
+    font-size: 28px;
+    color: rgb(70, 68, 68);
+    
+}
+
+.Form input[type=text]:focus, Form input[type=password]:focus{
+    background-color: white;
+    border-bottom: 2px solid black;
+    outline: none;
+}
+
+.Form input[type=submit]{
+    background-color: dimgray;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration:none;
+    display: inline-block;
+    text-transform:uppercase;
+    padding: 15px 60px 15px 60px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    border-radius: 5px 5px 5px 5px;
+    margin-bottom:  auto;
+    
+}
+input[type=submit]:focus{
+    background-color: black;
+    
+    outline: none;
+  }
+
