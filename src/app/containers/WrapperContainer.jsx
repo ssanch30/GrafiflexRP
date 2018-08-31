@@ -4,18 +4,17 @@ import LoginLayout from '../../login/components/login-layout.jsx'
 import userinfo from '../../database/userdata.json'
 import Header from '../components/Header.jsx'
 import TimesContainer from '../../times/containers/times-container.jsx'
+import typeList from '../../database/types.json'
 
 function valdiateUser(user,psw){
     let users=userinfo.userList
     for(let i = 0 ; i<users.length; i++){
-        if (users[i].name===user){
+        if (users[i].username===user){
             if(users[i].psw===psw){
-                console.log("true")
-                return true
+                return [true, users[i].dept]
             }
         }
     }
-    console.log('false')
     return false
 
 }
@@ -26,34 +25,45 @@ class WrapperContainer extends Component {
         user: "",
         password: "",
         validUser: false,
+        dept : 'cal'
     }
+
     handleLogin = e=>{
-        e.preventDefault()
+        console.log("tesst")
+       // e.preventDefault()
         let user = e.target.elements.username.value
         let psw = e.target.elements.psw.value
-        let isUserValid = valdiateUser(user,psw);
+        let [isUserValid,userDept] = valdiateUser(user,psw);
+
         if (isUserValid){
-            console.log(user, psw) 
+            //console.log(user, psw) 
             
             this.setState({
                 user: user,
                 password: psw,
                 validUser:true,
+                dept : userDept
             })
+        } else {
+            console.log("user not valid")
         }
+        console.log(user,psw)
     }
 
     render(){
-    return(
-        <Wrapper>
+        const depart = this.state.dept;
+        const types = typeList.departament;
+        const defList = types[depart]
+        return(
+            <Wrapper>
             <Header></Header>
             {
-                this.state.validUser ?
-            <TimesContainer></TimesContainer> :
-            <LoginLayout className='Form'
-                checkUser = {this.handleLogin}
-            >
-            </LoginLayout>        
+                this.state.validUser ?  
+                <TimesContainer list = {defList}/>:
+                <LoginLayout className='Form'
+                    checkUser = {this.handleLogin}
+                >
+                </LoginLayout>        
             
         }    
         </Wrapper>

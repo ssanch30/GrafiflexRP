@@ -10,7 +10,8 @@
 }
 
 .Wrapper{
-  height: 90%;
+  min-height: 50%;
+  height: 60%;
   width: 90%;
   background-color: whitesmoke;
   display : flex;
