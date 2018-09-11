@@ -1,10 +1,10 @@
 import React,{Component} from 'react'
 import Wrapper from '../components/Wrapper';
 import LoginLayout from '../../login/components/login-layout.jsx'
-import userinfo from '../../database/userdata.json'
+import userinfo from '../../db_sym/userdata.json'
 import Header from '../components/Header.jsx'
 import TimesContainer from '../../times/containers/times-container.jsx'
-import typeList from '../../database/types.json'
+import typeList from '../../db_sym/types.json'
 
 function valdiateUser(user,psw){
     let users=userinfo.userList
@@ -18,7 +18,6 @@ function valdiateUser(user,psw){
     return false
 
 }
-
 
 class WrapperContainer extends Component {
     state = {
