@@ -3,7 +3,7 @@ const path = require('path')
 
 class Comentario extends Model {
   static get tableName () {
-    return 'comentarios'
+    return 'users'
   }
 
   static get relationMappings () {
