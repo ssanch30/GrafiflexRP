@@ -1,5 +1,6 @@
 const casual = require('casual')
 
+
 exports.seed = (knex, Promise) => {
   return knex('comentarios').del().then(() => {
     const promises = Array(40).fill().map((_, id) => {

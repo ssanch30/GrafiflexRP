@@ -1,10 +1,10 @@
 module.exports = `
     type Stop {
         id:ID!
-        userId:Int!
-        stopTypeId:Int!
-        startTime: DateTime!
-        stoptime: DateTime!
+        user:User!
+        stopType:StopType!
+        startTime: String!
+        stopTime: String!
         minutes: Int!
     }
 `

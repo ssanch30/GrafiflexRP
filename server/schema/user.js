@@ -5,12 +5,7 @@ module.exports = `
         name: String!
         username:String!
         password: Int!
-        dept_id: Department!
+        department: Department
         stopList: [Stop]
-    }
-    type Department{
-        id:ID!
-        name:String!
-        stopList:[stop]
     }
 `

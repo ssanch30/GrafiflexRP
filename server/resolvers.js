@@ -1,18 +1,22 @@
 
 
-const Curso = require('./models/Curso')
-const Profesor = require('./models/Profesor')
+const User = require('./models/User')
+const StopType = require('./models/StopType')
+const Stop = require ('./models/Stop')
+const Department = require('./models/Department')
 
 const resolvers = {
     Query :{
-        cursos:()=> Curso.query().eager('[profesor,comentarios]'),
-        profesores: ()=>Profesor.query().eager('cursos'),
-        curso: (rootValue, args) => Curso.query().eager('[profesor,comentarios]').findById(args.id),
-        profesor:(rootValue,args) => Profesor.query().eager('cursos').findById(args.id)
+        users:()=> User.query().eager('departments'),
+        stoptypes: ()=>StopType.query().eager('departments'),
+        stops:() => Stop.query().eager('[users,stoptypes]'),
+        user: (rootValue, args) => User.query().eager('department').findById(args.id),
+        stop:(rootValue,args) => Stop.query().eager('[users,stoptypes]').findById(args.id),
+        department:(rootValue,args) => Department.query().eager('users').findById(args.id)
     },
-    Mutation:{
-        profesorAdd: (_,args)=>{
-            console.log(args.profesor)
+    /*Mutation:{ 
+        stopAdd: (_,args)=>{
+            console.log(args.profesor) 
             return Profesor.query().insert(args.profesor)
         },
         profesorEdit: (_,args)=>{
@@ -22,8 +26,9 @@ const resolvers = {
             return Profesor.query().findById(args.profesorId).then((profesor)=>{
                  return Profesor.query().deleteById(args.profesorId).then(()=>profesor)
             })
-        }        
-    }
+        }
+    }   */     
+
 }
 
 module.exports = resolvers

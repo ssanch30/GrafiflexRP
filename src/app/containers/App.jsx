@@ -15,12 +15,12 @@ class App extends Component {
     return (
       <div>
       <AppLayout/>  
-      <TestDB />
+      
       </div>    
     );
   }
 }
 
-
+//<TestDB /> Place this under layout to check db response 
 
 export default App;

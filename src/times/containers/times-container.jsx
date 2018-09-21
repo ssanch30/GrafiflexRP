@@ -16,5 +16,4 @@ class TimesContainer extends Component{
     }
 }
 
-//TENGO QUE SUBIR EL ID SELECCIONADO DESDE STOPTYPE
 export default TimesContainer

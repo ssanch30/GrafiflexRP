@@ -1,7 +1,7 @@
 const { Model } = require('objection')
 const path = require('path')
 
-class Stops extends Model {
+class Stop extends Model {
   static get tableName () {
     return 'stops'
   }
@@ -10,7 +10,7 @@ class Stops extends Model {
     return {
         users: {
             relation: Model.BelongsToOneRelation,
-            modelClass: path.join(__dirname, '/Users'),
+            modelClass: path.join(__dirname, '/User'),
             join: {
                 from: 'stops.user_id',
                 to: 'users.id'
@@ -18,7 +18,7 @@ class Stops extends Model {
         },
         stoptypes: {
             relation: Model.BelongsToOneRelation,
-            modelClass: path.join(__dirname, '/StopTypes'),
+            modelClass: path.join(__dirname, '/StopType'),
             join: {
                 from: 'stops.stoptypes_id',
                 to: 'stoptypes.id'
@@ -28,4 +28,4 @@ class Stops extends Model {
   }
 }
 
-module.exports = Stops
+module.exports = Stop

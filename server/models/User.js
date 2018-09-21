@@ -1,16 +1,16 @@
 const { Model } = require('objection')
 const path = require('path')
 
-class Users extends Model {
+class User extends Model {
   static get tableName () {
     return 'users'
   }
 
   static get relationMappings () {
     return {
-      departments: {
-        relation: Model.BelongsToOneRelation,
-        modelClass: path.join(__dirname, '/Departments'),
+      department: {
+        relation: Model.HasOneRelation,
+        modelClass: path.join(__dirname, '/Department'),
         join: {
           from: 'users.dept_id',
           to: 'departments.id'
@@ -20,4 +20,5 @@ class Users extends Model {
   }
 }
 
-module.exports = Users
+module.exports = User
+

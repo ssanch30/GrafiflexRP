@@ -1,6 +1,7 @@
 import { GraphQLScalarType } from 'graphql';
 
 import { isISO8601 } from 'validator';
+import { Module } from 'module';
 
 const parseISO8601 = (value) => {
   if (isISO8601(value)) {
@@ -31,4 +32,5 @@ const DateTime = new GraphQLScalarType({
   parseLiteral: parseLiteralISO8601,
 });
 
-export { DateTime as default };
+module.exports = DateTime
+//export { DateTime as default };

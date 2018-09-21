@@ -14,4 +14,5 @@ exports.seed = (knex, Promise) => {
 
     return Promise.all(promises)
   })
+  
 }

@@ -5,6 +5,7 @@ import userinfo from '../../db_sym/userdata.json'
 import Header from '../components/Header.jsx'
 import TimesContainer from '../../times/containers/times-container.jsx'
 import typeList from '../../db_sym/types.json'
+import Signup from '../../signup/components/signup.jsx'
 
 function valdiateUser(user,psw){
     let users=userinfo.userList
@@ -24,7 +25,8 @@ class WrapperContainer extends Component {
         user: "",
         password: "",
         validUser: false,
-        dept : 'cal'
+        dept : 'cal',
+        sign_up:true //change this state in case you want to use the app
     }
 
     handleLogin = e=>{
@@ -56,15 +58,15 @@ class WrapperContainer extends Component {
         return(
             <Wrapper>
             <Header></Header>
-            {
+            {this.state.sign_up ? 
+            <Signup/>:
                 this.state.validUser ?  
                 <TimesContainer list = {defList}/>:
                 <LoginLayout className='Form'
                     checkUser = {this.handleLogin}
                 >
                 </LoginLayout>        
-            
-        }    
+            }
         </Wrapper>
     )
 }

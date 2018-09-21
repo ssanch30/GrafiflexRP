@@ -28,4 +28,5 @@ class Curso extends Model {
   }
 }
 
+
 module.exports = Curso

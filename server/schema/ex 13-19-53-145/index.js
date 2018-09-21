@@ -25,4 +25,5 @@ const typeDefs = [rootQuery, Profesor, Curso ]
 
 
 
+
 module.exports = { typeDefs, resolvers}
