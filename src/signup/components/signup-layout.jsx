@@ -3,7 +3,8 @@ import './signup-style.css'
 import DropDown from '../containers/dept-list-container.jsx'
 
 
-class Signup extends Component {
+class SignupLayout extends Component {
+
     render(){
         return(
             <form className='signup-form'>
@@ -32,13 +33,15 @@ class Signup extends Component {
                 </div>
                 <div className="group">
                             <DropDown
-                                headerTitle = "Seleccione Departamento" />
+                                headerTitle = "Seleccione Departamento" 
+                                handleSelection ={this.props.handleSelection}
+                                />
                         </div>
-                <input type= "submit" value='Crear Usuario'/>
+                <input type= "submit" value='Crear Usuario' onSubmit = {this.props.onSubmit}/>
     
                 
             </form>
         )
     }
 }
-export default Signup
+export default SignupLayout

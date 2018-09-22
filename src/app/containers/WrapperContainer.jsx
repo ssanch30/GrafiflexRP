@@ -5,7 +5,7 @@ import userinfo from '../../db_sym/userdata.json'
 import Header from '../components/Header.jsx'
 import TimesContainer from '../../times/containers/times-container.jsx'
 import typeList from '../../db_sym/types.json'
-import Signup from '../../signup/components/signup.jsx'
+import Signup from '../../signup/containers/signup.jsx'
 
 function valdiateUser(user,psw){
     let users=userinfo.userList

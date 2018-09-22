@@ -24,7 +24,11 @@ function Departments (props){
                 props.listOpen && <ul className='d-list'>
                 {
                     props.ddList.map((item) =>(
-                        <li className="d-list-item" key = {item.id} onClick={()=>props.onSelection(item.id)}>
+                        <li
+                            className="d-list-item"
+                            key = {item.id} 
+                            onClick={()=>props.onSelection(item.id)}
+                            >
                             {item.id}. {firstUpper(item.name)}
                         </li>
                         )

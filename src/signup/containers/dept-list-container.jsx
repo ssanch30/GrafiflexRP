@@ -7,13 +7,6 @@ class deptList extends Component {
         listOpen: false,
         headerTitle:this.props.headerTitle,
     }
-    
-
-    handleClickOutside = ()=>{
-        this.setState({
-            listOpen: false
-        })
-    }
 
     toggleList = (prevState)=>{
         this.setState({
@@ -25,7 +18,6 @@ class deptList extends Component {
         this.props.handleSelection(id)
         this.setState({listOpen:false,
                       headerTitle: this.props.list[id-1].id +". "+this.props.list[id-1].type,
-                      showDescription:true
                     })
     }
 
