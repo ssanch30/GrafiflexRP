@@ -1,5 +1,3 @@
-
-
 const User = require('./models/User')
 const StopType = require('./models/StopType')
 const Stop = require ('./models/Stop')
@@ -14,22 +12,30 @@ const resolvers = {
         stop:(rootValue,args) => Stop.query().eager('[users,stoptypes]').findById(args.id),
         department:(rootValue,args) => Department.query().eager('users').findById(args.id)
     },
-    /*Mutation:{ 
-        stopAdd: (_,args)=>{
-            console.log(args.profesor) 
-            return Profesor.query().insert(args.profesor)
-        },
-        profesorEdit: (_,args)=>{
-            return Profesor.query().patchAndFetchById(args.profesorId, args.profesor)
-        },
-        profesorDelete:(_,args) => {
-            return Profesor.query().findById(args.profesorId).then((profesor)=>{
-                 return Profesor.query().deleteById(args.profesorId).then(()=>profesor)
-            })
-        }
-    }   */     
 
+    Mutation:{
+        userAdd: async (_,args) => {
+            console.log(args.user)
+            return  await User.query().insert(args.user)
+        }
+    }
 }
 
 module.exports = resolvers
 
+/*mutation AddUser{
+	userAdd(user:{
+        name:"Santiago"
+        lastname: "Sanchez"
+        username: "santiago.sanchez"
+        password : 2546
+        dept_id: 1
+         
+      }){
+        id
+        name
+        username
+        department{id}
+      }
+    }*/
+    

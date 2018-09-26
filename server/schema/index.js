@@ -16,6 +16,9 @@ const rootQuery = gql`
     user(id: Int!): User
     stop(id: Int!): Stop
     department(id: Int!): Department
+  },
+  type Mutation {
+    userAdd(user: NewUser): User
   }
 `
 // type Mutation {

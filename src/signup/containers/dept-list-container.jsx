@@ -17,7 +17,7 @@ class deptList extends Component {
     handleSelection= (id)=>{
         this.props.handleSelection(id)
         this.setState({listOpen:false,
-                      headerTitle: this.props.list[id-1].id +". "+this.props.list[id-1].type,
+                      headerTitle: ddList.departments[id-1].id + ". " +ddList.departments[id-1].name,
                     })
     }
 

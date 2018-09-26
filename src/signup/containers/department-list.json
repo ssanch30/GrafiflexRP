@@ -1,23 +1,23 @@
 {"departments":[
     {
         "id":1,
-        "name": "administración"
+        "name": "Administración"
     },
     {
         "id":2,
-        "name": "diseño"
+        "name": "Diseño"
     },
     {
         "id":3,
-        "name":"calidad"
+        "name":"Calidad"
     },
     {
         "id":4,
-        "name": "producción"
+        "name": "Producción"
     },
     {
         "id":5,
-        "name": "coordinación"
+        "name": "Coordinación"
     }
     ]
 }

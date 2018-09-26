@@ -3,7 +3,7 @@ import AppLayout from '../components/AppLayout'
 import '../components/App.css'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faInfoCircle} from '@fortawesome/free-solid-svg-icons';
-import TestDB from '../../test/testdb.jsx'
+//import TestDB from '../../test/testdb.jsx'
 
 library.add(faInfoCircle);
 
