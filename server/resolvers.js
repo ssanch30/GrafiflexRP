@@ -15,7 +15,6 @@ const resolvers = {
 
     Mutation:{
         userAdd: async (_,args) => {
-            console.log(args.user)
             return  await User.query().insert(args.user)
         }
     }
@@ -23,19 +22,4 @@ const resolvers = {
 
 module.exports = resolvers
 
-/*mutation AddUser{
-	userAdd(user:{
-        name:"Santiago"
-        lastname: "Sanchez"
-        username: "santiago.sanchez"
-        password : 2546
-        dept_id: 1
-         
-      }){
-        id
-        name
-        username
-        department{id}
-      }
-    }*/
     
