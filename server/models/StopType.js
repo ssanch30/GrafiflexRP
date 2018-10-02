@@ -3,7 +3,7 @@ const path = require('path')
 
 class StopType extends Model {
   static get tableName () {
-    return 'stoptypes'
+    return 'stoptype'
   }
 
   static get relationMappings () {
@@ -12,10 +12,18 @@ class StopType extends Model {
             relation: Model.HasManyRelation,
             modelClass: path.join(__dirname, '/User'),
             join: {
-                from: 'stoptypes.user_id',
+                from: 'stoptype.user_id',
                 to: 'users.id'
             }
         },
+        department:{
+          relation: Model.HasOneRelation,
+          modelClass: path.join(__dirname,'/Department'),
+          join:{
+            from: 'stoptype.dept_id',
+            to: 'departments.id'
+          }
+        }
     }
   }
 }

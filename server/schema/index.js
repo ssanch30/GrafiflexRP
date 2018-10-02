@@ -12,10 +12,11 @@ const rootQuery = gql`
   type Query {
     users: [User]
     stops: [Stop]
-    stoptypes: [StopType]
+    stoptypesByDept(dept_id:Int!): [StopType]
     user(id: Int!): User
     stop(id: Int!): Stop
     department(id: Int!): Department
+    username(username:String!,password: Int!): User
   },
   type Mutation {
     userAdd(user: NewUser): User

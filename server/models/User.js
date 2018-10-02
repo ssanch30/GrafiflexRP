@@ -5,7 +5,7 @@ class User extends Model {
   static get tableName () {
     return 'users'
   }
-
+  
   static get relationMappings () {
     return {
       department: {
@@ -15,10 +15,17 @@ class User extends Model {
           from: 'users.dept_id',
           to: 'departments.id'
         }
+      },
+      stops:{
+        relation: Model.HasManyRelation,
+        modelClass:path.join(__dirname, '/Stop'),
+        join:{
+          from:'users.id',
+          to:'stops.user_id'
+        }
       }
     }
   }
 }
-
 module.exports = User
 

@@ -5,7 +5,7 @@ class Curso extends Model {
   static get tableName () {
     return 'cursos'
   }
-
+  
   static get relationMappings () {
     return {
       profesor: {

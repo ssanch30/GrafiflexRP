@@ -14,6 +14,14 @@ class Department extends Model {
         from: 'departments.id',
         to: 'users.dept_id'
         }
+    },
+    stoptypes:{
+      relation: Model.HasManyRelation,
+      modelClass: path.join(__dirname,'/StopType'),
+      join: {
+        from: 'departments.id',
+        to: 'stoptype.dept_id'
+      }
     }
     }
   }

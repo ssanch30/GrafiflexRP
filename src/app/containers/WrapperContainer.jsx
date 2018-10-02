@@ -1,75 +1,105 @@
 import React,{Component} from 'react'
 import Wrapper from '../components/Wrapper';
 import LoginLayout from '../../login/components/login-layout.jsx'
-import userinfo from '../../db_sym/userdata.json'
 import Header from '../components/Header.jsx'
 import TimesContainer from '../../times/containers/times-container.jsx'
-import typeList from '../../db_sym/types.json'
 import Signup from '../../signup/containers/signup.jsx'
+//import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+import { ApolloConsumer } from 'react-apollo';
 
-function valdiateUser(user,psw){
-    let users=userinfo.userList
-    for(let i = 0 ; i<users.length; i++){
-        if (users[i].username===user){
-            if(users[i].psw===psw){
-                return [true, users[i].dept]
+
+
+const VALIDATE_USER= gql`
+query checkUsername($user:String!, $pswd:Int!){
+	username(username:$user, password:$pswd){
+        id
+        name
+        lastname
+        username
+        department{
+                dept_name
+                id
             }
-        }
     }
-    return false
+}`
 
-}
 
 class WrapperContainer extends Component {
     state = {
         user: "",
-        password: "",
         validUser: false,
-        dept : 'cal',
-        sign_up:true //change this state in case you want to use the app
+        dept : 0,
+        user_id:0,
+        sign_up:false, //change this state in case you want to use the app
+        wrongCredentials:false
     }
-
-    handleLogin = e=>{
-        console.log("tesst")
-       // e.preventDefault()
-        let user = e.target.elements.username.value
-        let psw = e.target.elements.psw.value
-        let [isUserValid,userDept] = valdiateUser(user,psw);
-
-        if (isUserValid){
-            //console.log(user, psw) 
-            
-            this.setState({
-                user: user,
-                password: psw,
-                validUser:true,
-                dept : userDept
-            })
-        } else {
+    
+    handleLogin = data =>{
+        //e.preventDefault()
+        if (data.username !== null){
+       // let name = data.username.name
+        //let lastname = data.username.lastname
+        let user = data.username.username
+        let user_id = data.username.id
+        let userDept = data.username.department.id
+        //let isUserValid = true        
+        this.setState({
+            user: user,
+            user_id:user_id,
+            dept : userDept,
+            validUser:true,                
+        })
+        }  
+        else{
             console.log("user not valid")
+            this.setState({wrongCredentials:true})
         }
-        console.log(user,psw)
     }
+    
+                          
 
     render(){
-        const depart = this.state.dept;
-        const types = typeList.departament;
-        const defList = types[depart]
         return(
             <Wrapper>
-            <Header></Header>
+            <Header/>
             {this.state.sign_up ? 
-            <Signup/>:
+                <Signup/>:
                 this.state.validUser ?  
-                <TimesContainer list = {defList}/>:
-                <LoginLayout className='Form'
-                    checkUser = {this.handleLogin}
-                >
-                </LoginLayout>        
+                <TimesContainer 
+                    user = {this.state.user}
+                    user_id = {this.state.user_id}
+                    dept_id = {parseInt(this.state.dept,10)}
+                />:
+                <ApolloConsumer>{client => (
+                    <LoginLayout
+                        checkUser = { async (e)=>{
+                            e.preventDefault()
+                            let user = e.target.elements.username.value
+                            let psw = parseInt(e.target.elements.psw.value,10)
+                            //console.log(user,psw)
+                            const { data } = await client.query({
+                                query: VALIDATE_USER,
+                                variables:{
+                                    user: user,
+                                    pswd: psw
+                                }
+                            });
+                            this.handleLogin(data)
+                        }   
+                        }
+                        wrongUser = {this.state.wrongCredentials}
+                        >
+                </LoginLayout>)}  
+                </ApolloConsumer>
             }
-        </Wrapper>
-    )
-}
-}
-
-export default WrapperContainer
+            </Wrapper>
+            )
+        }
+    }
+    
+    export default WrapperContainer
+    
+    
+    
+    

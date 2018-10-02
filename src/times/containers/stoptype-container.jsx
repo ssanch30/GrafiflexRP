@@ -1,5 +1,17 @@
 import  React, {Component} from 'react'
 import StopType from '../components/stoptype.jsx'
+import gql from 'graphql-tag'
+import {graphql} from 'react-apollo'
+
+const GET_STOPTYPE= gql`
+query stopByDept($dept:Int!)
+{
+  stoptypesByDept(dept_id: $dept){
+    id
+    type
+    description
+  }
+}`
 
 class stopContainer extends Component {
 
@@ -25,11 +37,13 @@ class stopContainer extends Component {
 
     handleSelection= (id)=>{
         this.props.handleSelection(id)
-        this.description = this.props.list[id-1].description
+        let item = this.props.data.stoptypesByDept.find(x => x.id === id);
+
         this.setState({listOpen:false,
-                      headerTitle: this.props.list[id-1].id +". "+this.props.list[id-1].type,
+                      headerTitle: item.id +". "+ item.type,
                       showDescription:true
                     })
+        this.description = item.description
     }
 
     render(){
@@ -41,7 +55,7 @@ class stopContainer extends Component {
                     headerTitle = {this.state.headerTitle}
                     listOpen = {this.state.listOpen}
                     openDropdown= {(e)=>this.toggleList(this.state)}
-                    typeList = {this.props.list}
+                    typeList = {this.props.data.stoptypesByDept}
                     onSelection = {(id)=>this.handleSelection(id)}
                     showDescription = {this.state.showDescription}
                     description = {this.description}
@@ -52,4 +66,7 @@ class stopContainer extends Component {
 
 }
 
-export default stopContainer
+
+export default graphql(GET_STOPTYPE, {
+    options: (props) => ({ variables: { dept: parseInt(props.dept_id) } })
+  })(stopContainer)

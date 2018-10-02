@@ -21,7 +21,7 @@ class Stop extends Model {
             modelClass: path.join(__dirname, '/StopType'),
             join: {
                 from: 'stops.stoptypes_id',
-                to: 'stoptypes.id'
+                to: 'stoptype.id'
                 }
             }
     }
