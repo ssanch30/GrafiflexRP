@@ -8,7 +8,7 @@ class Stop extends Model {
 
   static get relationMappings () {
     return {
-        users: {
+        user: {
             relation: Model.BelongsToOneRelation,
             modelClass: path.join(__dirname, '/User'),
             join: {
@@ -16,11 +16,11 @@ class Stop extends Model {
                 to: 'users.id'
             }
         },
-        stoptypes: {
+        stopType: {
             relation: Model.BelongsToOneRelation,
             modelClass: path.join(__dirname, '/StopType'),
             join: {
-                from: 'stops.stoptypes_id',
+                from: 'stops.stoptype_id',
                 to: 'stoptype.id'
                 }
             }

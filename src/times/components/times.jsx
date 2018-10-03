@@ -3,6 +3,7 @@ import './timeStyle.css'
 import Comments from './comments'
 import StartStop from './icon.jsx'
 import StopContainer from '../containers/stoptype-container.jsx'
+import Timer from '../containers/timer'
 
 
 function Times (props){
@@ -22,9 +23,22 @@ function Times (props){
                     user_id = {props.user_id}
                     dept_id = {props.dept_id}
                 /> 
-                <Comments className = "Comments"/> 
-            <StartStop  className = "Start-stop"/>
-        </div>
+                <Comments className = "Comments" onBlur = {props.storeComment}/> 
+                <StartStop  className = "Start-stop" 
+                    started = {props.started}
+                    handleStart = {(e)=>props.handleStart(e)}
+                    handleStop = {(e)=>props.handleStop(e)}
+                    disableButton = {props.disableButton}
+                />
+            </div>
+            <div>
+                {
+                    props.started && 
+                    <Timer
+                        storeStop = {(min,sec)=>props.storeStop(min,sec)}/>
+                    
+                }
+            </div>
         </div>
     )
     

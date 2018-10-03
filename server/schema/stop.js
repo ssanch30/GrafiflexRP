@@ -3,8 +3,20 @@ module.exports = `
         id:ID!
         user:User!
         stopType:StopType!
-        startTime: String!
-        stopTime: String!
+        start: Date!
+        stop: Date!
         minutes: Int!
+        comment: String!
     }
+
+
+    input NewStop{
+        user_id : Int!
+        stopType_id : Int!
+        startTime : Date!
+        stopTime : Date!
+        minutes : Int!
+        comment : String
+    }
+    scalar Date
 `

@@ -5,7 +5,7 @@ function Comments(props){
     return(
         <div className = "Comments">
             <h3>Comentarios</h3>
-            <textarea type="text" cols = "40" rows="4" />
+            <textarea type="text" cols = "40" rows="4" onBlur={props.onBlur}/>
         </div>
     )
 }

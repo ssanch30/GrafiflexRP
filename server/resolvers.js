@@ -9,7 +9,7 @@ const resolvers = {
         stoptypesByDept: (rootValue,args)=>StopType.query().eager('department').where({dept_id:args.dept_id}),
         stops:() => Stop.query().eager('[users,stoptypes]'),
         user: (rootValue, args) => User.query().eager('department').findById(args.id),
-        stop:(rootValue,args) => Stop.query().eager('[users,stoptypes]').findById(args.id),
+        stop:(rootValue,args) => Stop.query().eager('[user,stopType]').findById(args.id),
         department:(rootValue,args) => Department.query().eager('users').findById(args.id),
         username:(rootValue,args) => User.query().eager('[department,stops]').findOne({username: args.username, password: args.password})
     },

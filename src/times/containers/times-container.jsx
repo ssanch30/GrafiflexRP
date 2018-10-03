@@ -3,13 +3,50 @@ import Times from '../components/times.jsx'
 
 
 
-
 class TimesContainer extends Component{
-    
+    state ={
+        started : false,
+        startTime : '',
+        stopTime: '',
+        stopTypeId: 0,
+        comment: '',
+        validStopType:false,
+    }
     handleSelection = (id)=>{
-        console.log(id)
+        this.setState({
+            stopTypeId : id,
+            validStopType: true,
+        })
+    }
+
+    handleStart = (prevState) =>{
+        if(this.state.validStopType){
+        let start = new Date()
+        this.setState({
+            started: !prevState.started,
+            startTime : start
+        })}
     }
     
+    handleStop = (prevState) =>{
+        let stop = new Date()
+        this.setState({
+            started: !prevState.started,
+            stopTime: stop
+        })
+    }
+    storeStop = (min,sec)=>{
+        console.log('time Elapsed: ')
+        console.log(min, sec)
+        console.log (this.state)
+    }
+
+    storeComment=(e)=>{
+        this.setState({
+            comment: e.target.value
+        })
+    }
+
     render(){
         return(            
             <Times                
@@ -17,38 +54,15 @@ class TimesContainer extends Component{
                 user = {this.props.user}
                 user_id = {this.props.user_id}
                 dept_id = {this.props.dept_id}
+                started = {this.state.started}
+                storeComment = {this.storeComment}
+                disableButton = {!this.state.validStopType}
+                storeStop = {(min,sec)=>this.storeStop(min,sec)}
+                handleStart = {(e)=>this.handleStart(this.state )}
+                handleStop = {(e)=>this.handleStop(this.state)}
             />
             )
         }
     }
     
     export default TimesContainer
-    
-    /*                
-    const GET_DOGS = gql`
-    {
-        dogs {
-            id
-            breed
-        }
-    }
-    `;
-    
-    const Dogs = ({ onDogSelected }) => (
-        <Query query={GET_DOGS}>
-        {({ loading, error, data }) => {
-            if (loading) return "Loading...";
-            if (error) return `Error! ${error.message}`;
-            
-            return (
-                <select name="dog" onChange={onDogSelected}>
-                {data.dogs.map(dog => (
-                    <option key={dog.id} value={dog.breed}>
-                    {dog.breed}
-                    </option>
-                    ))}
-                    </select>
-                    );
-                }}
-                </Query>
-                );*/

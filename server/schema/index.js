@@ -8,6 +8,7 @@ const Stop = require('./Stop')
 const StopType = require ('./StopType')
 const Department = require('./Department')
 
+
 const rootQuery = gql`
   type Query {
     users: [User]
@@ -20,6 +21,7 @@ const rootQuery = gql`
   },
   type Mutation {
     userAdd(user: NewUser): User
+    stopAdd(stop: NewStop): Stop
   }
 `
 // type Mutation {

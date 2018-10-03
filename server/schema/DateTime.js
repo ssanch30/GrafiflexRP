@@ -1,36 +1,47 @@
+import { Kind } from 'graphql/language';
 import { GraphQLScalarType } from 'graphql';
 
-import { isISO8601 } from 'validator';
-import { Module } from 'module';
-
-const parseISO8601 = (value) => {
-  if (isISO8601(value)) {
-    return value;
+function serializeDate(value) {
+  if (value instanceof Date) {
+    return value.getTime();
+  } else if (typeof value === 'number') {
+    return Math.trunc(value);
+  } else if (typeof value === 'string') {
+    return Date.parse(value);
   }
-  throw new Error('DateTime cannot represent an invalid ISO-8601 Date string');
-};
+  return null;
+}
 
-const serializeISO8601 = (value) => {
-  if (isISO8601(value)) {
-    return value;
+function parseDate(value) {
+  if (value === null) {
+    return null;
   }
-  throw new Error('DateTime cannot represent an invalid ISO-8601 Date string');
-};
 
-const parseLiteralISO8601 = (ast) => {
-  if (isISO8601(ast.value)) {
-    return ast.value;
+  try {
+    return new Date(value);
+  } catch (err) {
+    return null;
   }
-  throw new Error('DateTime cannot represent an invalid ISO-8601 Date string');
-};
+}
 
-const DateTime = new GraphQLScalarType({
-  name: 'DateTime',
-  description: 'An ISO-8601 encoded UTC date string.',
-  serialize: serializeISO8601,
-  parseValue: parseISO8601,
-  parseLiteral: parseLiteralISO8601,
+function parseDateFromLiteral(ast) {
+  if (ast.kind === Kind.INT) {
+    const num = parseInt(ast.value, 10);
+    return new Date(num);
+  } else if (ast.kind === Kind.STRING) {
+    return parseDate(ast.value);
+  }
+  return null;
+}
+
+const TimestampType = new GraphQLScalarType({
+  name: 'Timestamp',
+  description:
+    'The javascript `Date` as integer. Type represents date and time ' +
+    'as number of milliseconds from start of UNIX epoch.',
+  serialize: serializeDate,
+  parseValue: parseDate,
+  parseLiteral: parseDateFromLiteral,
 });
 
-module.exports = DateTime
-//export { DateTime as default };
+export default TimestampType;
