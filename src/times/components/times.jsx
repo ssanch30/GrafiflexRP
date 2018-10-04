@@ -1,7 +1,7 @@
 import React from 'react'
 import './timeStyle.css'
 import Comments from './comments'
-import StartStop from './icon.jsx'
+import StartStop from './button.jsx'
 import StopContainer from '../containers/stoptype-container.jsx'
 import Timer from '../containers/timer'
 
@@ -27,8 +27,8 @@ function Times (props){
                 <StartStop  className = "Start-stop" 
                     started = {props.started}
                     handleStart = {(e)=>props.handleStart(e)}
-                    handleStop = {(e)=>props.handleStop(e)}
                     disableButton = {props.disableButton}
+                    handleStop = {(e)=>props.handleStop(e)}
                 />
             </div>
             <div>

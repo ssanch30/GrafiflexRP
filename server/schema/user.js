@@ -7,7 +7,7 @@ module.exports = `
         username:String!
         password: Int!
         department: Department
-        stopList: [Stop]
+        stops: [Stop]
     }
     input NewUser{
         name: String!

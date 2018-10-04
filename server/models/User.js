@@ -9,7 +9,7 @@ class User extends Model {
   static get relationMappings () {
     return {
       department: {
-        relation: Model.HasOneRelation,
+        relation: Model.BelongsToOneRelation,
         modelClass: path.join(__dirname, '/Department'),
         join: {
           from: 'users.dept_id',
@@ -23,7 +23,7 @@ class User extends Model {
           from:'users.id',
           to:'stops.user_id'
         }
-      }
+      },
     }
   }
 }

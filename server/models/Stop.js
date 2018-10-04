@@ -16,16 +16,39 @@ class Stop extends Model {
                 to: 'users.id'
             }
         },
-        stopType: {
+        stoptype: {
             relation: Model.BelongsToOneRelation,
             modelClass: path.join(__dirname, '/StopType'),
             join: {
                 from: 'stops.stoptype_id',
                 to: 'stoptype.id'
                 }
-            }
+            },
     }
   }
 }
 
 module.exports = Stop
+
+
+/*mutation NewStop($stop:NewStop!){
+  stopAdd(stop:$stop){
+    id
+    user{name}
+    stopType{type}
+    start
+    stop
+    minutes
+    comment
+  }
+
+}
+
+
+  {stop(id:1){
+  id
+  user{name}
+  stopType{type}
+}
+}
+*/

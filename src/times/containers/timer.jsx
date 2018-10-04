@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 
 
+
 class Timer extends Component{
     state = {
         seconds: '00', 
@@ -38,6 +39,7 @@ class Timer extends Component{
         this.stopCounter()
     }
 
+    
     startCounter=() => {
         this.intervalHandle = setInterval(this.tick, 1000);
     }
@@ -64,6 +66,7 @@ class Timer extends Component{
     export default Timer
     
  /*   
+ graphql(ADD_USER,{name:'AddUser'})(Signup)
     class App extends React.Component {
         constructor(props) {
             super(props);
@@ -110,4 +113,4 @@ class Timer extends Component{
             let time = this.state.minutes;
             this.secondsRemaining = time * 60;
         }
-    }*/
+        }*/

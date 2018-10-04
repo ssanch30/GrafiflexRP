@@ -13,6 +13,8 @@ const rootQuery = gql`
   type Query {
     users: [User]
     stops: [Stop]
+    stoptypes:[StopType]
+    stoptype: StopType 
     stoptypesByDept(dept_id:Int!): [StopType]
     user(id: Int!): User
     stop(id: Int!): Stop
@@ -21,7 +23,7 @@ const rootQuery = gql`
   },
   type Mutation {
     userAdd(user: NewUser): User
-    stopAdd(stop: NewStop): Stop
+    stopAdd(stop: NewStop!): Stop
   }
 `
 // type Mutation {

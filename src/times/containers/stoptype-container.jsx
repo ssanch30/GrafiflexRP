@@ -68,5 +68,5 @@ class stopContainer extends Component {
 
 
 export default graphql(GET_STOPTYPE, {
-    options: (props) => ({ variables: { dept: parseInt(props.dept_id) } })
+    options: (props) => ({ variables: { dept: parseInt(props.dept_id,10) } })
   })(stopContainer)
