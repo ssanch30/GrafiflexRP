@@ -1,0 +1,26 @@
+.Play{
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    border:none;
+    outline-color: none
+    
+}
+.Play:focus{
+    outline:none
+}
+
+.Stop{
+
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    outline:none;
+    border:none; 
+}
+.Stop:focus
+{
+    outline:none
+}

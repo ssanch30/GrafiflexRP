@@ -45,7 +45,7 @@ class TimesContainer extends Component{
         this.setState({
             started: !prevState.started,
             stopTime: stop
-        },this.createStop)
+        })
     }
     storeStop = (min,sec)=>{
 
@@ -59,7 +59,7 @@ class TimesContainer extends Component{
 
         this.setState({
             minutes,
-        })
+        },this.createStop)
     }
 
     storeComment=(e)=>{
@@ -75,10 +75,8 @@ class TimesContainer extends Component{
         let start = this.state.startTime
         let stop = this.state.stopTime
         let minutes = this.state.minutes
-        console.log("MINUTESSS!!!!!!!!!!!!!!!!!>>>>>>>>>>>>>>>>>>>><")
-        console.log(minutes)
- 
         let comment = this.state.comment
+
         try{
             await this.props.newStop({
                 variables:{
@@ -100,7 +98,6 @@ class TimesContainer extends Component{
                 })  
             }                             
     }
-//TENGO QUE HACER QUE EL STORE STOP PASE PRIMERO QUE EL HANDLE STOP PARA QUE GUARDE LOS MINUTOS
     render(){
         return(            
             <Times                
@@ -112,7 +109,7 @@ class TimesContainer extends Component{
                 storeComment = {this.storeComment}
                 disableButton = {!this.state.validStopType}
                 storeStop = {(min,sec)=>this.storeStop(min,sec)}
-                handleStart = {(e)=>this.handleStart(this.state )}
+                handleStart = {(e)=>this.handleStart(this.state)}
                 handleStop = {(e)=>this.handleStop(this.state)}
             />
             )

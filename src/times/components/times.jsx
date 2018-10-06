@@ -10,9 +10,7 @@ function Times (props){
     return(
         <div className = "Time">
             <div>
-                Seleccione el tipo de parada e inicie el contador:<br/>
-
-                {props.user}+{props.dept_id}+{props.user_id}
+                Seleccione el tipo de parada e inicie el contador:
             </div>
             <div className = "TimesWrapper">
                 <StopContainer

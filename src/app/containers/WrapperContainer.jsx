@@ -36,10 +36,10 @@ class WrapperContainer extends Component {
     }
     
     handleLogin = data =>{
-        //e.preventDefault()
+        // e.preventDefault()
         if (data.username !== null){
-       // let name = data.username.name
-        //let lastname = data.username.lastname
+        // let name = data.username.name
+        // let lastname = data.username.lastname
         let user = data.username.username
         let user_id = data.username.id
         let userDept = data.username.department.id
@@ -52,7 +52,6 @@ class WrapperContainer extends Component {
         })
         }  
         else{
-            console.log("user not valid")
             this.setState({wrongCredentials:true})
         }
     }
