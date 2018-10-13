@@ -1,0 +1,53 @@
+.App {
+  text-align: center;
+  display:flex;
+  font-family: "Helvetica", sans-serif;
+  height :100vh;
+  width:100%;
+  background-color: dimgray;
+  align-items:center;
+  justify-content: center;
+}
+
+.Wrapper{
+  min-height: 50%;
+  height: 90%;
+  width: 90%;
+  background-color: whitesmoke;
+  display : flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 30px 60px 0px rgba(0,0,0,0.5);
+}
+
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: black;
+  padding-right: 20px;
+  height: 25%; 
+  min-height: 70px;
+  color: dimgray;
+  border-bottom: 1px solid gray;
+  border-radius: 10px 10px 0px 0px;
+  
+}
+.App-logo {
+  height: 100%;
+  object-fit:contain;
+  padding-left:20px;
+}
+.App-title {
+  font-size: 40px;  
+  text-align: right;
+  color:lightgray;
+  align-self: center;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+

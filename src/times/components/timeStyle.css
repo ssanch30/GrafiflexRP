@@ -1,0 +1,66 @@
+.Time{
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width:100%;
+    justify-content: space-evenly;
+
+} 
+
+.TimesWrapper{
+    display: flex;
+    flex-wrap:  wrap;
+    width:100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Credentials{
+    color: dimgray;
+    font-size:18px;
+}
+#user{
+    font-size: 35px;
+    margin-bottom:0px
+}
+
+
+.Comments{
+    border-left: 1px solid lightgray;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-right: 1px solid lightgray
+
+}
+.Comments h3{
+    text-align: left;
+    color: dimgray;
+}
+.Comments textarea{
+    border: none;
+    border-radius: 10px;
+    height: 100%;
+    width: 200px;
+    font-size: 18px;
+    background-color: white;
+    justify-content: center;
+}
+.Comments textarea:focus{
+    outline-color: lightgray;
+    border-bottom: 2px solid black;
+}
+.Start-stop{
+    margin : auto;
+    background-color: black;
+}
+
+.Success{
+    background-color: rgb(0, 246, 21);
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 34px;
+    object-fit: contain;
+    padding:20px;
+    border-radius: 0px 0px 10px 10px;
+}

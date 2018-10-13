@@ -1,0 +1,171 @@
+
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
+    align-self: center;
+
+}
+
+.info-group{
+    display: flex;
+    flex-direction: column;
+    height: 60%;
+    width: 90%;
+    margin: auto;
+    justify-content: center;
+    overflow-x: auto;
+    
+}
+
+.info-group div{
+    display: flex;
+    justify-content: space-evenly
+}
+
+.group {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-evenly; 
+    margin: 20px;
+    background-color: whitesmoke;
+    width: 90%;
+}
+
+.group h3{
+    color: dimgray;
+    text-align: left;
+}
+
+.group input[type= text], .group input[type = password]{
+    background-color: whitesmoke;
+    border-radius: 5px;
+    border : none ;
+    color:dimgray;
+    margin: 10px;
+    font-size: 20px;
+    padding: 15px 10px;
+    border-bottom:1px solid lightgray;
+    text-align: left;
+    width: 80%;
+}
+.group input:focus {
+    border-bottom:2px solid rgb(59, 59, 59);
+    outline: none;
+    background-color:white;
+}
+.group :focus{
+    background-color:white;
+    color : black;
+}
+
+input[type=submit]{
+    background-color:rgb(59, 59, 59);
+    color: white;
+    min-width:100px;
+    font-weight: bold;
+    font-size:20px;
+    border:none;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 0px
+}
+input[type=submit]:hover{
+    background-color:black;
+    
+}
+
+input[type=submit]:disabled{
+    background-color:lightgray;
+    
+}
+
+
+.d-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
+    padding:20px 0px 40px 0px; 
+    max-width: 100%;
+    min-width: 95%;
+    border-radius: 10px;
+
+}
+
+.d-header{
+    padding:10px 10px 0px 0px; 
+    display: flex;
+    flex-direction: row;
+    border:1px solid lightgray;
+    margin: 0;
+    justify-content: space-between; 
+    width:auto;
+    background-color:white;
+    border-radius: 10px 10px 10px 10px;
+
+}
+
+
+.d-header-title{
+    color: dimgray;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.d-list{
+    margin: 0px;
+    list-style: none;
+    background-color:white;
+    text-align: left;
+    padding: 0;
+    height: auto;
+    border-radius: 10px;
+}
+
+.d-list:hover{
+    overflow:auto;
+}
+
+.d-list-item{
+    color: dimgray;
+    display: block;
+    list-style: none;
+    list-style-type: none;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.d-list-item:hover{
+    background-color: lightgray;
+}
+
+.NewUser{
+
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between
+    
+}
+
+.NewUser p {
+    color: dimgray; font-size: 20px;
+}
+
+.NewUser div{
+    color: dimgray;
+    padding-bottom: 30px;
+}
+
+.NewUser input{
+    background-color:rgb(59, 59, 59);
+    color: white;
+    min-width:100px;
+    font-size:20px;
+    border:none;
+    border-radius: 0px 0px 10px 10px;
+    padding: 20px 0px
+}

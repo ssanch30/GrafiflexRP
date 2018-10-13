@@ -1,0 +1,38 @@
+.Play{
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    border:none;
+    outline-color: none
+}
+
+.Play:focus{
+    outline:none
+}
+
+
+.fa-play:hover{
+    font-size: 80px;
+    color:rgb(0, 246, 21);
+}
+
+.fa-stop:hover{
+    color:red;
+    font-size: 80px;
+}
+
+.Stop{
+
+    padding: 20px;
+    width: 70px;
+    height: 70px;
+    background: none;
+    outline:none;
+    border:none; 
+}
+
+.Stop:focus
+{
+    outline:none
+}

@@ -1,0 +1,26 @@
+{
+    "userList":[
+        {
+            "name":"Santiago Sanchez",
+            "username":"santiago.sanchez",
+            "psw":"2546",
+            "dept":"dis",
+            "id":1        
+        },
+        {
+            "name":"Cristina Vasquez",
+            "username":"cristina.vasquez",
+            "psw":"1212",
+            "dept":"cal",
+            "id": 2
+        },
+        {
+            "name": "Carlos Sánchez",
+            "username":"carlos.sanchez",
+            "psw":"0825",
+            "dept":"cal",
+            "id":3
+        }
+    
+    ]
+}
