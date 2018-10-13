@@ -26,9 +26,14 @@
   flex-direction: row;
   justify-content: space-between;
   background-color: black;
+<<<<<<< HEAD
   padding-right: 20px;
   height: 25%; 
   min-height: 70px;
+=======
+  height: 110px; 
+  padding: 20px 20px 10px 60px;
+>>>>>>> 7ab3ef53fb9302bf87c4791f45af6dcaa9383c57
   color: dimgray;
   border-bottom: 1px solid gray;
   border-radius: 10px 10px 0px 0px;

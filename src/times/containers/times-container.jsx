@@ -3,7 +3,6 @@ import Times from '../components/times.jsx'
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
 
-
 const ADD_STOP = gql`
 mutation newStop($stop: NewStop!){
     stopAdd(stop:$stop){

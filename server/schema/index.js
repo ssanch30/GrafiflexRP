@@ -2,7 +2,6 @@ const { gql } = require( 'apollo-server-express' )
 const {makeExecutableSchema,addMockFunctionsToSchema } = require ('graphql-tools')
 
 const resolvers = require('../resolvers')
-// types
 const User = require('./User')
 const Stop = require('./Stop')
 const StopType = require ('./StopType')
