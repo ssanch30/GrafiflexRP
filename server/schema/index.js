@@ -1,5 +1,4 @@
 const { gql } = require( 'apollo-server-express' )
-const {makeExecutableSchema,addMockFunctionsToSchema } = require ('graphql-tools')
 
 const resolvers = require('../resolvers')
 const User = require('./User')
@@ -25,12 +24,7 @@ const rootQuery = gql`
     stopAdd(stop: NewStop!): Stop
   }
 `
-// type Mutation {
-    
-// }
-// stoptypes: [Stoptype]
 
-// Stoptype
   typeDefs= [rootQuery, User, StopType, Stop, Department ]
   
 

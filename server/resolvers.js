@@ -6,11 +6,7 @@ const Department = require('./models/Department')
 const resolvers = {
     Query :{
         //FetchAll
-<<<<<<< HEAD
         users:()=> User.query().eager('[department,stops]'),
-=======
-        users:()=> User.query().eager('[departments,stops]'),
->>>>>>> 7ab3ef53fb9302bf87c4791f45af6dcaa9383c57
         stoptypes: ()=>StopType.query().eager('department'),
         stops:() => Stop.query().eager('[user,stoptype]'),
         
@@ -35,9 +31,5 @@ const resolvers = {
     }
 }
 
-<<<<<<< HEAD
 module.exports = resolvers 
-=======
-module.exports = resolvers
->>>>>>> 7ab3ef53fb9302bf87c4791f45af6dcaa9383c57
 

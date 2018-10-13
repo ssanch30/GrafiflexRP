@@ -63,7 +63,7 @@ class TimesContainer extends Component{
         this.setState({
             started: !prevState.started,
             stopTime: stop,
-            headerTitle: "Seleccione el tipo de parada",
+            headerTitle: "Tipo de Parada",
             unselect:true,
             validStopType:false
         })
