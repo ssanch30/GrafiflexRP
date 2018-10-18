@@ -2,7 +2,8 @@
   text-align: center;
   display:flex;
   font-family: "Helvetica", sans-serif;
-  height :100vh;
+  min-height: 100vh;
+  height: auto;
   width:100%;
   background-color: dimgray;
   align-items:center;
@@ -11,7 +12,6 @@
 
 .Wrapper{
   min-height: 50%;
-  height: 90%;
   width: 90%;
   background-color: whitesmoke;
   display : flex;

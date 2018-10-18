@@ -23,7 +23,20 @@ class Department extends Model {
         from: 'departments.id',
         to: 'stoptype.dept_id'
       }
-    }
+      },
+      stop:{
+        relation: Model.HasOneThroughRelation,
+        modelClass: path.join(__dirname,'/Stop'),
+        join:{
+          from:'departments.id',
+            through:{
+              modelClass: path.join(__dirname, '/User'),
+              from: 'users.dept_id',
+              to: 'users.id'
+            },
+          to:'stops.user_id',
+        }
+      }
     }
   }
 }

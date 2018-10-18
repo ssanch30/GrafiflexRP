@@ -1,12 +1,13 @@
 import React,{Component} from 'react'
-import Wrapper from '../components/Wrapper';
+import Wrapper from '../components/Wrapper'
 import LoginLayout from '../../login/components/login-layout.jsx'
 import Header from '../components/Header.jsx'
-import TimesContainer from '../../times/containers/times-container.jsx'
 import Signup from '../../signup/containers/signup.jsx'
 //import { graphql } from 'react-apollo'
 import gql from 'graphql-tag'
-import { ApolloConsumer } from 'react-apollo';
+import { ApolloConsumer } from 'react-apollo'
+import { Route, Switch, withRouter } from 'react-router-dom'
+import ProtectedRoute from './protected-route.jsx'
 
 
 
@@ -26,7 +27,7 @@ query checkUsername($user:String!, $pswd:Int!){
 
 
 class WrapperContainer extends Component {
-    state = {
+    /*state = {
         name:"",
         lastname:"",
         username: "",
@@ -35,10 +36,23 @@ class WrapperContainer extends Component {
         user_id:0,
         sign_up:false, //change this state in case you want to use the app
         wrongCredentials:false
-    }
+    }*/
     
+    //////////////////////////////////
+    //Intended for  not having to singup on development
+    state = {
+        name:'santiago',
+        lastname:"sanchez",
+        username: "santiago.sanchez",
+        validUser: true,
+        dept : 6,
+        user_id:1,
+        wrongCredentials:false
+    }
+    /////////////////////////////////////
+
     handleLogin = data =>{
-        // e.preventDefault()
+        //e.preventDefault()
         if (data.username !== null){
         let name = data.username.name
         let lastname = data.username.lastname
@@ -53,56 +67,58 @@ class WrapperContainer extends Component {
             user_id,
             dept : userDept,
             validUser:true,                
-        })
+        },	()=>{this.props.history.push('/times')})
         }  
         else{
             this.setState({wrongCredentials:true})
         }
     }
     
-                          
+                           
 
     render(){
         return(
             <Wrapper>
-            <Header/>
-            {this.state.sign_up ? 
-                <Signup/>:
-                this.state.validUser ?  
-                <TimesContainer 
-                    user = {this.state.name + ' ' + this.state.lastname}
-                    user_id = {this.state.user_id}
-                    dept_id = {parseInt(this.state.dept,10)}
-                />:
-                <ApolloConsumer>{client => (
-                    <LoginLayout
-                        checkUser = { async (e)=>{
-                            e.preventDefault()
-                            let user = e.target.elements.username.value
-                            let psw = parseInt(e.target.elements.psw.value,10)
-                            //console.log(user,psw)
-                            const { data } = await client.query({
-                                query: VALIDATE_USER,
-                                variables:{
-                                    user: user,
-                                    pswd: psw
+                <Header/>
+                <Switch>
+                    <ProtectedRoute exact path = '/times' 
+                                    user = {this.state.name + ' ' + this.state.lastname}
+                                    user_id = {this.state.user_id}
+                                    dept_id = {parseInt(this.state.dept,10)}
+                                    authenticated = {this.state.validUser}
+                    />
+                    <Route exact path='/'>
+                        <ApolloConsumer>{client => (
+                            <LoginLayout
+                                checkUser = { async (e)=>{
+                                    e.preventDefault()
+                                    let user = e.target.elements.username.value
+                                    let psw = parseInt(e.target.elements.psw.value,10)
+                                    //console.log(user,psw)
+                                    const { data } = await client.query({
+                                        query: VALIDATE_USER,
+                                        variables:{
+                                            user: user,
+                                            pswd: psw
+                                        }
+                                    });
+                                    this.handleLogin(data)
+                                }   
                                 }
-                            });
-                            this.handleLogin(data)
-                        }   
-                        }
-                        wrongUser = {this.state.wrongCredentials}
-                        >
-                </LoginLayout>)}  
-                </ApolloConsumer>
-                
-            }
+                                wrongUser = {this.state.wrongCredentials}
+                                >
+                            </LoginLayout>)}  
+                        </ApolloConsumer>
+                    </Route>
+                        
+                    <Route exact path = '/signup' component={Signup}/>
+                </Switch>
             </Wrapper>
             )
         }
     }
     
-    export default WrapperContainer
+    export default withRouter(WrapperContainer)
     
     
     

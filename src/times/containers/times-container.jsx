@@ -64,6 +64,7 @@ class TimesContainer extends Component{
             started: !prevState.started,
             stopTime: stop,
             headerTitle: "Tipo de Parada",
+            
             unselect:true,
             validStopType:false
         })

@@ -24,6 +24,7 @@ class Stop extends Model {
                 to: 'stoptype.id'
                 }
             },
+
     }
   }
 }

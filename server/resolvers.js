@@ -8,16 +8,16 @@ const resolvers = {
         //FetchAll
         users:()=> User.query().eager('[department,stops]'),
         stoptypes: ()=>StopType.query().eager('department'),
-        stops:() => Stop.query().eager('[user,stoptype]'),
+        stops:() => Stop.query().eager('[user.department,stoptype     ]'),
         
         //Fetch Many
         stoptypesByDept: (rootValue,args)=>StopType.query().eager('department').where({dept_id:args.dept_id}),
         
         //Fetchone
         user: async (rootValue, args) => await User.query().eager('[department,stops.stoptype]').findById(args.id),
-        stop:(rootValue,args) => Stop.query().eager('[user,stoptype]').findById(args.id),
+        stop: async (rootValue,args) => await Stop.query().eager('[user,stoptype]').findById(args.id),
         stoptype: async (rootValue,args)=> await StopType.query().eager('department').where(args.id),
-        department:(rootValue,args) => Department.query().eager('users').findById(args.id),
+        department:(rootValue,args) => Department.query().eager('[users,stop]').findById(args.id),
         username:(rootValue,args) => User.query().eager('[department,stops]').findOne({username: args.username, password: args.password})
     },
     
