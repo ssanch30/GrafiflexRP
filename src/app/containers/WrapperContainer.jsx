@@ -44,7 +44,7 @@ class WrapperContainer extends Component {
         name:'santiago',
         lastname:"sanchez",
         username: "santiago.sanchez",
-        validUser: true,
+        validUser: true, ///////////////////////////CHANGE THIS FOR AVOIDING LOGIN/////////////////////////
         dept : 6,
         user_id:1,
         wrongCredentials:false

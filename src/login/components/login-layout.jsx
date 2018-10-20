@@ -31,7 +31,7 @@ function LoginLayout(props){
                     value="Iniciar Sesión"
                     />
             </form>
-            <Link to = '/signup' className = 'Link'> <b>Crear un Usuario Nuevo</b> </Link>
+            <Link to = '/signup' className = 'Link' disabled='false'> <b>Crear un Usuario Nuevo</b> </Link>
         </Fragment>
 
         )

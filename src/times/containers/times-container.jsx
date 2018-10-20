@@ -111,7 +111,7 @@ class TimesContainer extends Component{
                     }
                 }).then(this.setState({stopCreated:true}),
                     setTimeout(
-                        ()=>this.setState({stopCreated:false}),5000))
+                        ()=>this.setState({stopCreated:false}),3000))
         }
         catch(e){
             console.log(e.message)

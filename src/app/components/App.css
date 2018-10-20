@@ -2,8 +2,7 @@
   text-align: center;
   display:flex;
   font-family: "Helvetica", sans-serif;
-  min-height: 100vh;
-  height: auto;
+  min-height: 650px;
   width:100%;
   background-color: dimgray;
   align-items:center;
@@ -11,8 +10,8 @@
 }
 
 .Wrapper{
-  min-height: 50%;
   width: 90%;
+  height: 90%;
   background-color: whitesmoke;
   display : flex;
   flex-direction: column;
@@ -43,6 +42,7 @@
   font-size: 40px;  
   text-align: right;
   color:lightgray;
+  font-weight: bold;
   align-self: center;
 }
 

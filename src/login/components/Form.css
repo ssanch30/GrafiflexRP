@@ -10,7 +10,7 @@
         
 }
 
-.Form input[type=text], Form input[type=password]{
+.Form input[type=text], .Form input[type=password]{
     padding: 20px;
     margin-bottom: 50px;
     font-size: 24px;
@@ -18,13 +18,13 @@
     background-color: rgb(221, 221, 221);
     border: 0px;
     border-radius: 5px;
-    margin-bottom:  auto;
+    margin:  10px 0px 20px 0px;
 }
 
 .Form h2{
     font-size: 28px;
     color: rgb(70, 68, 68);
-    
+    margin-top:20px
 }
 
 .Form input[type=text]:focus, Form input[type=password]:focus{
@@ -34,6 +34,7 @@
 }
 
 .Form input[type=submit]{
+    margin-bottom:  30px;
     background-color: dimgray;
     border: none;
     color: white;
@@ -44,17 +45,17 @@
     padding: 15px 60px 15px 60px;
     font-size: 13px;
     margin-bottom: 30px;
-    border-radius: 5px 5px 5px 5px;
-    margin-bottom:  auto;
-    
+    border-radius: 5px 5px 5px 5px;    
 }
+
 input[type=submit]:focus{
     background-color: black;
-    
     outline: none;
   }
 
 .Link{
+    border-top: 1px solid dimgray;
+    padding-top:10px;
     color: dimgray;
     margin: 10px;
 }

@@ -1,7 +1,9 @@
 import React from 'react'
 
 const Filters = (props) =>(
-    <div>filters</div>
+    <div>
+        filtros
+    </div>
 )
 
 export default Filters
