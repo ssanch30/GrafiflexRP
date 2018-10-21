@@ -55,7 +55,9 @@ const firstCharToUpper = (string)=>{
 
 class TableTimes extends Component{
    state = {
-       selectedDates : []
+       selectedDates : [],
+       totalMinutes: null,
+       filteredData: formatData(this.props.stops)
    }
 
     handleDateSearch = (selectedKeys, confirm)=> () => {
@@ -70,11 +72,21 @@ class TableTimes extends Component{
     handleDateReset = (clearFilters)=>() => {
         clearFilters()
     }
+ 
+  
+    getFooter = (items, props) => {
+      console.log('ITEMS:  ', items)
+      if (items == null) {
+          return 0;
+      }
+      return items.reduce(function (a, b) {
+          return b[props] == null ? a : a + b[props];
+      }, 0);
+    }
     
-
-    
-    onChange = (pagination, filters, sorter) => {
-      //console.log('params', pagination, filters, sorter);
+    onChange = (pagination, filters, sorter, currentDataSource) => {
+      this.setState({filteredData : currentDataSource.currentDataSource})
+      console.log('params', pagination, filters, sorter, currentDataSource);
     }
     
     render (){
@@ -141,28 +153,26 @@ class TableTimes extends Component{
                     <Button onClick={this.handleDateReset(clearFilters)}>Reset</Button>
                   </div>
                 ),
-                onFilter: (value, record) =>  
+                onFilter: (value, record) => ( 
                 new Date(toISOFormat(record.stop)).getTime() >= new Date(value[0]).getTime() && 
                 new Date(toISOFormat(record.stop)).getTime() <= new Date(value[1]).getTime()
-
-            },
+                ),
+              }, 
           ];
     return(
         <Table  columns={columns}
                 dataSource={formatData(this.props.stops)} 
                 onChange={this.onChange}
                 style={{backgroundColor:'white'}}
-                footer = {() => <b>Total Minutos en los parámetros seleccionados: </b>}
                 pagination = {{size:'small'}}
+                footer = {()=>( <div className = 'Footer'>
+                                  <p>Tiempo total dentro de los filtros seleccionados =  </p>
+                                  <div>{this.getFooter(this.state.filteredData, 'minutes').toFixed(2) }</div>
+                                   <p> min </p> 
+                               </div>)}
                 />
         )
 }
 }
 
 export default TableTimes
-
-
-
-
-
-  

@@ -1,1 +1,17 @@
 @import '~antd/dist/antd.css';
+.Footer{
+  text-align: left;
+  font-size: 18px;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;  
+
+   
+  
+}
+
+.Footer div{
+  margin: 0px 20px 0px 20px;
+  font-size: 20px;
+font-weight: bolder;  
+}
