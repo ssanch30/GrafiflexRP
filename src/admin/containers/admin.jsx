@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 //import Filters from '../components/filters.jsx'
 import Table from '../components/table.jsx'
-import Export from '../components/export.jsx'
 import gql from 'graphql-tag'
 import {graphql} from 'react-apollo'
 
@@ -28,7 +27,7 @@ class Admin extends Component {
         return(
             <div>
                 <Table stops = {stops}/>
-                <Export/>
+                
             </div>
                 )
                 
