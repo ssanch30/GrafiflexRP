@@ -62,8 +62,8 @@ class TableTimes extends Component{
 
     handleDateSearch = (selectedKeys, confirm)=> () => {
         confirm()
-        console.log('selectedKeys')
-        console.log(selectedKeys)
+        // console.log('selectedKeys')
+        // console.log(selectedKeys)
         this.setState({
             selectedDates:selectedKeys
         })
@@ -75,7 +75,7 @@ class TableTimes extends Component{
  
   
     getFooter = (items, props) => {
-      console.log('ITEMS:  ', items)
+      //console.log('ITEMS:  ', items)
       if (items == null) {
           return 0;
       }
@@ -87,6 +87,25 @@ class TableTimes extends Component{
     onChange = (pagination, filters, sorter, currentDataSource) => {
       this.setState({filteredData : currentDataSource.currentDataSource})
       console.log('params', pagination, filters, sorter, currentDataSource);
+    }
+
+    getFilters = (data, column)=>{
+      let newData = []
+
+      for(let i=0; i < data.length ; i++){
+          if(newData.indexOf(data[i][column]) === -1){
+            newData.push(data[i][column])
+        }
+      }
+      console.log(newData)
+      let newFilter = []
+      for(let i = 0 ; i < newData.length; i++){
+        newFilter.push({
+            text: newData[i],
+            value: newData[i]
+        })
+      }
+      return newFilter
     }
     
     render (){
@@ -100,6 +119,8 @@ class TableTimes extends Component{
             dataIndex: 'user',
             width:100,
             defaultSortOrder: 'descend',
+            filters: this.getFilters(formatData(this.props.stops), 'user'),
+            onFilter: (value, record) => record.user.indexOf(value) === 0,
             sorter: (a, b) => a.user.length - b.user.length,
           }, {
             title: 'Departamento',
@@ -120,6 +141,9 @@ class TableTimes extends Component{
               dataIndex: 'stoptype',
               width:180,
               sorter: (a, b) => a.stoptype.length - b.stoptype.length,
+              filters: this.getFilters(this.state.filteredData, 'stoptype'),                        
+              onFilter: (value, record) => record.stoptype.indexOf(value) === 0,
+
             },
             {
               title: 'Duración [min]',
@@ -168,7 +192,7 @@ class TableTimes extends Component{
                 footer = {()=>( <div className = 'Footer'>
                                   <p>Tiempo total dentro de los filtros seleccionados =  </p>
                                   <div>{this.getFooter(this.state.filteredData, 'minutes').toFixed(2) }</div>
-                                   <p> min </p> 
+                                   <p> minutos </p> 
                                </div>)}
                 />
         )

@@ -27,7 +27,7 @@ query checkUsername($user:String!, $pswd:Int!){
 
 
 class WrapperContainer extends Component {
-    /*state = {
+    state = {
         name:"",
         lastname:"",
         username: "",
@@ -36,10 +36,10 @@ class WrapperContainer extends Component {
         user_id:0,
         sign_up:false, //change this state in case you want to use the app
         wrongCredentials:false
-    }*/
+    }
     
     //////////////////////////////////
-    //Intended for  not having to singup on development
+    /*//Intended for  not having to singup on development
     state = {
         name:'santiago',
         lastname:"sanchez",
@@ -49,7 +49,7 @@ class WrapperContainer extends Component {
         user_id:1,
         wrongCredentials:false
     }
-    /////////////////////////////////////
+    */////////////////////////////////////
 
     handleLogin = data =>{
         //e.preventDefault()
