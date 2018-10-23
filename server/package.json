@@ -6,7 +6,8 @@
   "scripts": {
     "start": " nodemon index.js",
     "db:migrate": "knex migrate:latest --knexfile=db/knexfile.js",
-    "db:seed": "knex seed:run --knexfile=db/knexfile.js"
+    "db:seed": "knex seed:run --knexfile=db/knexfile.js",
+    "build":""
   },
   "author": "Santiago Sánchez",
   "license": "MIT",

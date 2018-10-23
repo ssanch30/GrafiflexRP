@@ -97,7 +97,7 @@ class TableTimes extends Component{
             newData.push(data[i][column])
         }
       }
-      console.log(newData)
+      //console.log(newData)
       let newFilter = []
       for(let i = 0 ; i < newData.length; i++){
         newFilter.push({
@@ -112,19 +112,22 @@ class TableTimes extends Component{
         const columns = [{
             title: '#',
             dataIndex: 'id',
-            width:40,
-            sorter: (a, b) => a.id - b.id,
+            key: 'id',
+            width:60,
+            defaultSortOrder: 'descend',
+            sorter: (a, b, sortOrder) => a.id - b.id,
           }, {
             title: 'Usuario',
             dataIndex: 'user',
+            key: 'user',
             width:100,
-            defaultSortOrder: 'descend',
             filters: this.getFilters(formatData(this.props.stops), 'user'),
             onFilter: (value, record) => record.user.indexOf(value) === 0,
             sorter: (a, b) => a.user.length - b.user.length,
           }, {
             title: 'Departamento',
             dataIndex: 'dept',
+            key: 'dept',
             width:150,
             align: 'center',
             filters: [{
@@ -139,14 +142,16 @@ class TableTimes extends Component{
           },{
               title: 'Tipo de Parada',
               dataIndex: 'stoptype',
+              key: 'stoptype',
               width:180,
               sorter: (a, b) => a.stoptype.length - b.stoptype.length,
-              filters: this.getFilters(this.state.filteredData, 'stoptype'),                        
-              onFilter: (value, record) => record.stoptype.indexOf(value) === 0,
+              //filters: this.getFilters(this.state.filteredData, 'stoptype'),                        
+              //onFilter: (value, record) => record.stoptype.indexOf(value) === 0,
 
             },
             {
               title: 'Duración [min]',
+              key: 'minutes',
               width:80,
               align:'center',
               dataIndex: 'minutes',
@@ -154,33 +159,33 @@ class TableTimes extends Component{
             },{
               title: 'Comentarios',
               dataIndex: 'comment',
+              key: 'comment',
               width:120,
-              sorter: (a, b) => a.minutes - b.minutes,
             },
             {
               title: 'Inicio',
+              key: 'start',
               width:120,
               align:'center',
               dataIndex: 'start',
-              sorter: (a, b) => a.start - b.start,
             },
             {
               title: 'Final',
+              key: 'stop',
               width:120,
               align:'center',
               dataIndex: 'stop',
-              sorter: (a, b) => a.stop - b.stop,
               filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
-                  <div className="custom-filter-dropdown">
-                    <RangePicker onChange={(date,dateString) => setSelectedKeys([dateString])}/>
-                    <Button type="primary" onClick={this.handleDateSearch(selectedKeys, confirm)}>Filtrar</Button>
-                    <Button onClick={this.handleDateReset(clearFilters)}>Reset</Button>
-                  </div>
-                ),
-                onFilter: (value, record) => ( 
+                <div className="custom-filter-dropdown">
+                  <RangePicker onChange={(date,dateString) => setSelectedKeys([dateString])}/>
+                  <Button type="primary" onClick={this.handleDateSearch(selectedKeys, confirm)}>Filtrar</Button>
+                  <Button onClick={this.handleDateReset(clearFilters)}>Reset</Button>
+                </div>
+              ),
+              onFilter: (value, record) => ( 
                 new Date(toISOFormat(record.stop)).getTime() >= new Date(value[0]).getTime() && 
                 new Date(toISOFormat(record.stop)).getTime() <= new Date(value[1]).getTime()
-                ),
+              ),
               }, 
           ];
     return(
