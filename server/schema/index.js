@@ -1,8 +1,8 @@
 const { gql } = require( 'apollo-server-express' )
 
 const resolvers = require('../resolvers')
-const User = require('./User')
-const Stop = require('./Stop')
+const User = require('./user')
+const Stop = require('./stop')
 const StopType = require ('./StopType')
 const Department = require('./Department')
 
