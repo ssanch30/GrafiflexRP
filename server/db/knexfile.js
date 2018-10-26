@@ -1,16 +1,17 @@
 module.exports = {
 
   development: {
-    client: 'mysql',
+    client:   process.env.DB_CLIENT,
     connection: {
-      host : 'localhost',
-      port: '3306',
-      user: 'root',
-      password: 'santisanch3',
-      database: 'Registro_Paradas'
+      host : process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USER,
+      password: process.env.DB_PSW,
+      database: process.env.DB
     },
     useNullAsDefault: true
   },
+
 
   production: {
     // Acá irían los datos para la conexión
