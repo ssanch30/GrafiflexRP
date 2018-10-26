@@ -8,7 +8,7 @@ const resolvers = {
         //FetchAll
         users:()=> User.query().eager('[department,stops]'),
         stoptypes: ()=>StopType.query().eager('department'),
-        stops:() => Stop.query().eager('[user.department,stoptype     ]'),
+        stops:() => Stop.query().eager('[user.department,stoptype]'),
         
         //Fetch Many
         stoptypesByDept: (rootValue,args)=>StopType.query().eager('department').where({dept_id:args.dept_id}),

@@ -10,7 +10,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter } from 'react-router-dom'
 
 const client = new ApolloClient({
-    link: createHttpLink({uri:'http://192.168.1.10:3300/graphql'}),
+    link: createHttpLink({uri:'http://localhost:3300/graphql'}),
     cache: new InMemoryCache({
         addTypename:false
     })

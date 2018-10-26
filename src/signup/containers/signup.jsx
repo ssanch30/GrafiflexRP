@@ -5,19 +5,6 @@ import UserCreatedLayout from '../components/user-created.jsx'
  import gql from 'graphql-tag'
  import {graphql} from 'react-apollo'
 
-// const CursosQuery = gql `
-// mutation CursosQuery {
-//   cursos {
-//       titulo
-//       profesor{
-//           nombre
-//       }
-//   }
-// }
-// `
-
-
-
 
 const ADD_USER = gql`
 mutation AddUser($user: NewUser!){
