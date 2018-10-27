@@ -15,7 +15,7 @@ class Timer extends Component{
         var min = Math.floor(this.secondsElapsed / 60)
         var sec = this.secondsElapsed - (min * 60)
 
-        if (min > 5 && !nShown){
+        if (min >= 5 && !nShown){
             if(this.n.supported()) this.n.show();
             nShown = true
         }
@@ -70,7 +70,7 @@ class Timer extends Component{
                 <h1>{this.state.minutes}:{this.state.seconds}</h1>
                 <ReactNotifications
                     onRef={ref => (this.n = ref)} // Required
-                    title={'Registro de Paradas > ' + this.state.seconds  + ' minutos'} // Required
+                    title={'Registro de Paradas > ' + this.state.minutes  + ' minutos'} // Required
                     body= ' recuerda detenerla cuando termines'
                     icon = '../../img/logografiflex.png'
                     tag="notification"
