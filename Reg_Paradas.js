@@ -14,9 +14,10 @@ app.get('/*', function(req, res) {
 
 app.listen(9000,()=>{console.log("Server running at localhost:9000")});
 
-var certOptions = {
-  key: fs.readFileSync(path.resolve('sslcert/server.key')),
-  cert: fs.readFileSync(path.resolve('sslcert/server.crt'))
+/*var certOptions = {
+  key: fs.readFileSync('sslcert/server.key', 'utf8'),
+  cert: fs.readFileSync('sslcert/server.crt', 'utf8')
 }
 
 //https.createServer(certOptions, app).listen(9000)
+*/

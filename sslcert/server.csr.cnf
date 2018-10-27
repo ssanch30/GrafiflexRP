@@ -10,5 +10,5 @@ ST=RandomState
 L=RandomCity
 O=RandomOrganization
 OU=RandomOrganizationUnit
-emailAddress=example@grafifllex.com
-CN = 192.168.1.1:9000
+emailAddress=hello@example.com
+CN = localhost
