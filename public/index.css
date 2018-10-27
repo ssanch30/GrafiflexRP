@@ -1,6 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  height: 1000vh;
+  background-color: dimgray;
   font-family: Helvetica,sans-serif;
   align-items: center;
 }
