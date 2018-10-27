@@ -15,7 +15,7 @@ class Timer extends Component{
         var min = Math.floor(this.secondsElapsed / 60)
         var sec = this.secondsElapsed - (min * 60)
 
-        if (min >= 5 && !nShown){
+        if (sec >= 5 && !nShown){
             if(this.n.supported()) this.n.show();
             nShown = true
         }
