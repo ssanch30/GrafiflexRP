@@ -12,12 +12,13 @@ app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.listen(9000,()=>{console.log("Server running at localhost:9000")});
 
-/*var certOptions = {
-  key: fs.readFileSync('sslcert/server.key', 'utf8'),
-  cert: fs.readFileSync('sslcert/server.crt', 'utf8')
+var certOptions = {
+  key: fs.readFileSync('./sslcert/server.key'),
+  cert: fs.readFileSync('./sslcert/server.crt')
 }
 
-//https.createServer(certOptions, app).listen(9000)
-*/
+https.createServer(certOptions, app).listen(9000,()=>{console.log("Server running at localhost:9000")})
+
+
+//app.listen(9000,()=>{console.log("Server running at localhost:9000")});
