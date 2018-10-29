@@ -24,4 +24,4 @@ var certOptions = {
 //     console.log(`🚀 Server Running at https://localhost:${PORT}${server.graphqlPath}`)
 // })
 
-https.createServer(certOptions, app).listen(3300,()=>{console.log(process.env.DB)})
+https.createServer(certOptions, app).listen(3300,()=>{`🚀 Server Running at https://localhost:${PORT}${server.graphqlPath}`})
