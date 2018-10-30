@@ -5,7 +5,7 @@ import App from './app/containers/App';
 import registerServiceWorker from './registerServiceWorker';
 import ApolloClient from 'apollo-client'
 import {ApolloProvider} from 'react-apollo'
-import {createHttpLink , HttpLink} from 'apollo-link-http'
+import {/*createHttpLink,*/  HttpLink} from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter } from 'react-router-dom'
 
