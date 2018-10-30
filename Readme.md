@@ -53,4 +53,4 @@ Start server:
 `npm start`
 
 For production
-`npm run buildç`
+`npm run build`
