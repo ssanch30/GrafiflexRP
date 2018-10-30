@@ -16,7 +16,7 @@ const link = new HttpLink({
   });
 
 const client = new ApolloClient({
-    link: link,//createHttpLink({uri:'http://localhost:3300/graphql'}),
+    link: createHttpLink({uri:'http://192.168.1.1:3300/graphql'}),
     cache: new InMemoryCache({
         addTypename:false
     })
