@@ -24,7 +24,7 @@ class Timer extends Component{
             minutes: min.toString(),
             seconds: sec.toString()
         })
-        if (sec < 10) {
+        if (min < 10) {
             this.setState({
                 seconds: "0" + sec,
             })

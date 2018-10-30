@@ -9,7 +9,6 @@ import {createHttpLink , HttpLink} from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter } from 'react-router-dom'
 
-
 const link = new HttpLink({
     uri: 'https://192.168.1.1:3300/graphql',
     // Additional fetch options like `credentials` or `headers`
