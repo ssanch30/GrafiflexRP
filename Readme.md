@@ -4,7 +4,7 @@
 GrafiflexRP
 ==============
 
-##Description
+## Description
 
 Aplication creaded with react, express, ,knex, Graphql, for recordint stop times and waiting times in the production graphic process eof the company [Grafiflex SAS](www.grafiflex.com)
 
