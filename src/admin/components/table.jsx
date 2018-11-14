@@ -145,8 +145,8 @@ class TableTimes extends Component{
               key: 'stoptype',
               width:180,
               sorter: (a, b) => a.stoptype.length - b.stoptype.length,
-              //filters: this.getFilters(this.state.filteredData, 'stoptype'),                        
-              //onFilter: (value, record) => record.stoptype.indexOf(value) === 0,
+              filters: this.getFilters(this.state.filteredData, 'stoptype'),                        
+              onFilter: (value, record) => record.stoptype.indexOf(value) === 0,
 
             },
             {
