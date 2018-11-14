@@ -19,7 +19,7 @@ function LoginLayout(props){
                     placeholder = 'Ingrese su nombre de usuario'/>
                     
                 <h2>
-                    Constaseña:
+                    Contraseña:
                 </h2>
                 <input
                     type="password"
