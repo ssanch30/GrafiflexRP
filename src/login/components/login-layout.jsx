@@ -8,7 +8,7 @@ function LoginLayout(props){
     return(
         <Fragment>
             <form className = 'Form' onSubmit={props.checkUser}>
-            {props.wrongUser&&<p style = {{color:'red'}}>El usuario o la constraseña no son correctos</p>}
+            {props.wrongUser&&<p style = {{color:'red'}}>El usuario o la contraseña no son correctos</p>}
                 <h2>
                     Usuario:
                 </h2>
