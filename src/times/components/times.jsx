@@ -24,7 +24,9 @@ function Times (props){
                     dept_id = {props.dept_id}
                     unselect = {props.unselect}
                 />
-                <Comments className = "Comments" onBlur = {props.storeComment}/> 
+                <Comments className = "Comments" 
+                            onBlur = {props.storeComment}
+                            unselect = {props.unselect}/> 
                 <StartStop  className = "Start-stop" 
                     started = {props.started}
                     handleStart = {(e)=>props.handleStart(e)}

@@ -59,7 +59,6 @@ class TimesContainer extends Component{
     
     handleStop = (prevState) =>{
         let stop = toMySQLFormat(new Date())
-        
         this.setState({
             started: !prevState.started,
             stopTime: stop,
