@@ -31,6 +31,8 @@ class TimesContainer extends Component{
     state ={
         started : false,
         startTime : '',
+        start:'',
+        stop:'',
         stopTime: '',
         stopTypeId: 0,
         minutes:0,
@@ -53,7 +55,8 @@ class TimesContainer extends Component{
         let start = toMySQLFormat(new Date())
         this.setState({
             started: !prevState.started,
-            startTime : start
+            startTime : start,
+            start:new Date()
         })}
     }
     
@@ -63,7 +66,7 @@ class TimesContainer extends Component{
             started: !prevState.started,
             stopTime: stop,
             headerTitle: "Tipo de Parada",
-            
+            stop:new Date(),
             unselect:true,
             validStopType:false
         })
@@ -93,9 +96,8 @@ class TimesContainer extends Component{
         let stoptype_id = parseInt(this.state.stopTypeId,10)
         let start = this.state.startTime
         let stop = this.state.stopTime
-        let minutes = this.state.minutes
+        let minutes = (this.state.stop - this.state.start)/1000/60
         let comment = this.state.comment
-
         try{
             await this.props.newStop({
                 variables:{
