@@ -15,14 +15,14 @@ server.applyMiddleware({app})
 
 const PORT = 3300
 
-// var certOptions = {
-//   key: fs.readFileSync('./ssl-cert-prod/server.key'),
-//   cert: fs.readFileSync('./ssl-cert-prod/server.crt')
-// }
 var certOptions = {
-  key: fs.readFileSync('./sslcert/server.key'),
-  cert: fs.readFileSync('./sslcert/server.crt')
+  key: fs.readFileSync('./ssl-cert-prod/server.key'),
+  cert: fs.readFileSync('./ssl-cert-prod/server.crt')
 }
+// var certOptions = {
+//   key: fs.readFileSync('./sslcert/server.key'),
+//   cert: fs.readFileSync('./sslcert/server.crt')
+// }
 
 //  app.listen(PORT, () => {
 //      console.log(`🚀 Server Running at https://localhost:${PORT}${server.graphqlPath}`)
