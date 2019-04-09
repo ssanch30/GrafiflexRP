@@ -1,0 +1,166 @@
+{"departament":{
+  "dis":[{
+      "id": 1,
+      "type":"Paradas por otros departamentos",
+      "description": "Falta de Información Coordinación, Artes, Mal Rechazo en Calidad",
+      "selected": false
+
+  },{
+      "id":2,
+      "type":"Parada Programada",
+      "description": "Mantenimiento Preventivo Computadores o Servidor u O.P.",
+      "selected": false
+  },{
+      "id":3,
+      "type":"Parada por falla",
+      "description": "Falla en el Computador o Servidor u O.P.",
+      "selected": false
+  },{
+      "id":4,
+      "type": "Ajuste de Máquina",
+      "description":"Ajuste en el Computador y lo interviene un compañero",
+      "selected": false
+  },{
+      "id":5,
+      "type": "Parada por Mantenimiento",
+      "description": "Se presenta cuando mantenimiento entrega Computador de un mantenimiento preventivo o correctivo y sigue en fallo",
+      "selected":false
+  },{
+      "id": 6,
+      "type":"Parada por defectos y reprocesos",
+      "description":"El producto que sale con algun defecto (Reposiciones - Reprocesos)",
+      "selected": false
+  },{
+      "id":7,
+      "type":"Parada por ajustes y dudas en el diseño",
+      "description":"Puede ser dudas en Calidad, Producción, etc…",
+      "selected":false
+  },{
+      "id":8,
+      "type":"Parada por falta de Energia ó Agua",
+      "description":"Se suspende el servicio de enregia ó acueducto",
+      "selected":false
+  },{
+      "id":9,
+      "type": "Parada por falta de operario",
+      "description": "Está afectado por los ausentismos o falta de personal para cumplir con la programación",
+      "selected": false
+  },{
+      "id":10,
+      "type":"Parada por reunión y/ó capacitación",
+      "description":"Capacitación o reunión",
+      "selected":false
+  },{
+      "id":11,
+      "type":"Alistamiento",
+      "description":"Consiste en el Arranque del Computador o la O.P.",
+      "selected":false
+  },{
+     "id": 12,
+     "type":"Atención al Cliente",
+     "description": "Personal o Telefónicamente",
+     "selected": false
+  },{
+      "id":13,
+      "type":"Falta Software",
+      "description":"Por falta de Software especializado se generen retrazos",
+      "selected":false
+  },{
+      "id":14,
+      "type":"Ayuda a Compañero",
+      "description":"Cuando se generan dudas en tus Compañeros y tu les ayudas o les ajustas los trabajos",
+      "selected":false
+  },{
+      "id":15,
+      "type":"Otros (No especificados arriba)",
+      "description":"Eventos no contemplados en items anteriores",
+      "selected":false
+      }
+  ]
+,
+"cal":[
+  {
+          "id":1,
+          "type": "Paradas por otros departamentos" ,
+          "description": "Falta de Información Diseño, O.P. Rechazada, O.P. Revisada y Rechazada de nuevo (Promedio de preguntas o paros por rechazo por día)",
+          "selected":false
+      },{
+          "id":2,
+          "type":"Parada Programada" ,
+          "description":"Mantenimiento Preventivo Computadores o Servidor u O.P." ,
+          "selected":false
+      },{
+          "id":3,
+          "type": "Parada por falla",
+          "description": "Falla en el Computador o Servidor u O.P.",
+          "selected":false
+      },{
+          "id":4,
+          "type":"Ajuste de Máquina",
+          "description": "Ajuste en el Computador y lo interviene un compañero",
+          "selected":false
+      },{
+          "id":5,
+          "type": "Parada por Mantenimiento",
+          "description":"Se presenta cuando mantenimiento entrega Computador de un mantenimiento preventivo o correctivo y sigue en fallo",
+          "selected":false
+      },{            
+          "id":6,
+          "type": "Parada por defectos y reprocesos",
+          "description":"El producto que sale con algun defecto (Reposiciones)" ,
+          "selected":false
+      },{
+          "id":7,
+          "type":"Parada por falta de Energia ó Agua" ,
+          "description":"Se suspende el servicio de energia ó acueducto" ,
+          "selected":false
+      },{
+          "id":8,
+          "type":"Parada por ajustes y dudas en el diseño" ,
+          "description": "Puede ser dudas en Coordinación, Artes, Finalización, etc…",
+          "selected":false
+      },{
+          "id":9,
+          "type":"Parada por falta de operario" ,
+          "description": "Está afectado por los ausentismos o falta de personal para cumplir con la programación",
+          "selected":false
+      },{
+          "id":10,
+          "type": "Parada por reunión y/ó capacitación",
+          "description": "Capacitación o reunión",
+          "selected":false
+      },{            
+          "id":11,
+          "type": "Alistamiento",
+          "description": "Consiste en el desarme, limpieza y arme de las máquinas (lavado Procesadora - Alistamiento Katana)",
+          "selected":false    
+      },{
+          "id":12,
+          "type":"Atención al Cliente" ,
+          "description": "Personal o Telefónicamente",
+          "selected":false
+      },{
+          "id":13,
+          "type": "Falta Software",
+          "description": "Por falta de Software especializado se generen retrazos",
+          "selected":false
+      },{
+          "id":14,
+          "type": "Ayuda a Compañero",
+          "description": "Cuando se generan dudas en tus Compañeros y tu les ayudas o les ajustas los trabajos",
+          "selected":false
+      },{
+          "id":15,
+          "type": "Retoque Películas",
+          "description": "Retoque por Películas en mal estado",
+          "selected":false
+      },{
+          "id":16,
+          "type": "Otros (No especificados arriba)",
+          "description": "Eventos no contemplados en items anteriores",
+          "selected":false
+      }
+  ]
+  }
+
+}
