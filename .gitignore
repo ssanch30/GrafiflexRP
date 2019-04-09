@@ -5,11 +5,10 @@
 .vscode
 /Cred
 /server/node_modules
-/server
 
 # testing
 /coverage
-/server/db
+/server/db/.env
 
 
 
