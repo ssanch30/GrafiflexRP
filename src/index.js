@@ -10,8 +10,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { BrowserRouter } from 'react-router-dom'
 
 const link = new HttpLink({
-    uri: 'https://192.168.1.1:3300/graphql', //FOR PRODUCTION 
+    //uri: 'https://192.168.1.1:3300/graphql', //FOR PRODUCTION 
     //uri: 'http://localhost:3300/graphql',// FOR DEVELOPMENT
+    uri:'https://201.184.136.226:3300/graphql', //NETLIFY
     // Additional fetch options like `credentials` or `headers`
     credentials: 'same-origin',
   });
