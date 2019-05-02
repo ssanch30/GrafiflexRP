@@ -4,6 +4,7 @@ const app = express();
 var https = require('https')
 var fs = require('fs')
 
+const port=process.env.PORT || 3000
 
 
 app.use(express.static(path.join(__dirname, 'build')));
